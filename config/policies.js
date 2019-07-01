@@ -15,4 +15,17 @@ module.exports.policies = {
     '*': false,
     index: true
   },
+
+  UsersController: {
+    '*': false,
+    create: [
+      'users/create',
+      'users/emailAlredyExist',
+      'phones/phoneAlredyExist'
+    ],
+    update: true,
+    live: true,
+    login: true,
+    logout: true,
+  }
 };

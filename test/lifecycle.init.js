@@ -44,37 +44,35 @@ beforeEach(function() {
   chai.use(sinonChai);
   global.expect = require('chai').expect;
   global.server = 'http://localhost:1400';
-  global.checkHeaders = function(res, statusCode) {
+  global.checkHeaders = (res, statusCode) => {
     res.should.have.status(statusCode);
     res.should.have.header('content-type', 'application/json; charset=utf-8');
   };
 });
 
 // Start sails app
-before( function(done) {
+before(function(done) {
   // Increase the Mocha timeout so that Sails has enough time to lift.
   this.timeout(0);
-  sails.lift(
-    {
-      port: 1400,
-      log: {
-        level: 'silent'
-      },
-      models: {
-        migrate: 'safe'
-      }
+  sails.lift({
+    port: 1400,
+    log: {
+      level: 'silent'
     },
-    err => {
-      if (err) {
-        return done(err);
-      }
-      done(err, sails);
+    models: {
+      migrate: 'drop'
     }
-    );
+  },
+  err => {
+    if (err) {
+      return done(err);
+    }
+    done(err, sails);
   });
+});
 
-  // Stop sails app
-  after(function(done) {
-    sails.lower(done);
-  });
-  /* eslint-enable */
+// Stop sails app
+after(function(done) {
+  sails.lower(done);
+});
+/* eslint-enable */

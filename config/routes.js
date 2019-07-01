@@ -9,5 +9,15 @@
  */
 
 module.exports.routes = {
+  /*****************
+   * PING CONTROLLER
+   */
   'GET /': 'PingController.index',
+
+  /*****************
+   * USERS
+   */
+  'POST /users': {
+    action: 'users/create'
+  },
 };

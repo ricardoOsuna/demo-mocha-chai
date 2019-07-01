@@ -35,7 +35,7 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
 
-  schema: true,
+  schema: false,
 
 
   /***************************************************************************
@@ -54,16 +54,6 @@ module.exports.models = {
     id: {
       type: 'number',
       autoIncrement: true,
-    },
-    createdAt: {
-      type: 'string',
-      columnType: 'datetime',
-      autoCreatedAt: true
-    },
-    updatedAt: {
-      type: 'string',
-      columnType: 'datetime',
-      autoUpdatedAt: true
     },
     //--------------------------------------------------------------------------
     //  /\   Using MongoDB?
