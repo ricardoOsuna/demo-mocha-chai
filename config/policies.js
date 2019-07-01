@@ -23,9 +23,5 @@ module.exports.policies = {
       'users/emailAlredyExist',
       'phones/phoneAlredyExist'
     ],
-    update: true,
-    live: true,
-    login: true,
-    logout: true,
   }
 };

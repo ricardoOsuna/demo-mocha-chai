@@ -134,4 +134,5 @@ lib-cov
 *.out
 *.pid
 .nyc_output/
+coverage/
 

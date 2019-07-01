@@ -283,4 +283,4 @@ module.exports = {
       expect: expect400('This phone is alredy in use by some user')
     },
   ]
-}
+};
