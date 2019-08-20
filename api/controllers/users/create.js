@@ -36,5 +36,5 @@ module.exports = async (req, res) => {
     return res.negotiate(e);
   }
 
-  return res.ok();
+  return res.ok(user);
 };

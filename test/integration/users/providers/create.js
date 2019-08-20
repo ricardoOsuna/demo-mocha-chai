@@ -259,6 +259,14 @@ module.exports = {
       expect: expect400('The Password is corrupted')
     },
     {
+      title: 'Shouldn´t create user without phone',
+      data: {
+        ...dummyData,
+        phone: undefined
+      },
+      expect: expect400('The Phone is required')
+    },
+    {
       title: 'Should create user',
       data: {
         ...dummyData

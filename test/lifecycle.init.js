@@ -1,7 +1,6 @@
 // Defining ESLint environments
 /* eslint-env node, mocha */
 
-const sails = require('sails');
 global.expect200 = () => {
   return {
     status: 200,
@@ -39,7 +38,6 @@ beforeEach(function() {
   global.chaiHttp = require('chai-http');
   global.sinon = require('sinon');
   global.sinonChai = require('sinon-chai');
-  global.mock = require('mock-require');
   chai.use(chaiHttp);
   chai.use(sinonChai);
   global.expect = require('chai').expect;
@@ -51,6 +49,7 @@ beforeEach(function() {
 });
 
 // Start sails app
+const sails = require('sails');
 before(function(done) {
   // Increase the Mocha timeout so that Sails has enough time to lift.
   this.timeout(0);
@@ -72,7 +71,7 @@ before(function(done) {
 });
 
 // Stop sails app
-after(function(done) {
+after('Test complete', function(done) {
   sails.lower(done);
 });
 /* eslint-enable */
